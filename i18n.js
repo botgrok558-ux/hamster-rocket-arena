@@ -12,25 +12,31 @@
 
   const DICT = {
     de: {
-      "hud.wave": "WELLE", "hud.best": "BESTWERT", "hud.combo": "COMBO", "hud.left": "ÜBRIG", "hud.boss": "ROBO-KATZE",
-      "hud.bossWave": "BOSS-WELLE!", "hud.bossName": "RIESIGE ROBO-KATZE", "hud.bossDown": "ROBO-KATZE BESIEGT!", "hud.angry": "ROBO-KATZE IST SAUER!",
-      "hud.clear": "WELLE GESCHAFFT!", "hud.ready": "MACH DICH BEREIT!", "hud.meow": "MIAU!", "hud.move": "BEWEGEN", "hud.aim": "ZIELEN (AUTO)",
-      "pw.triple": "DREIFACHSCHUSS!", "pw.rapid": "SCHNELLFEUER!", "pw.shield": "SCHILD!", "pw.heal": "+LEBEN!",
-      "ui.best": "Bestwert", "ui.noBest": "Noch kein Bestwert. Leg los!", "ui.waves1": "1 Welle", "ui.wavesN": "{n} Wellen",
-      "ui.debug": "Debug: Start bei Welle {n} (zählt nicht als Bestwert)",
-      "share.text1": "Ich habe 1 Welle in Hamster Rocket Arena überlebt 🐹🚀 Schaffst du mehr?",
-      "share.textN": "Ich habe {n} Wellen in Hamster Rocket Arena überlebt 🐹🚀 Schaffst du mehr?",
+      "hud.level": "LV", "hud.horde": "HORDE IM ANMARSCH!", "hud.bossWave": "BOSS!", "hud.bossName": "RIESIGE ROBO-KATZE", "hud.bossDown": "ROBO-KATZE BESIEGT!",
+      "hud.boss": "ROBO-KATZE", "hud.move": "BEWEGEN", "hud.aim": "ZIELEN + SCHIESSEN",
+      "up.damage": "Kern-Schaden", "up.damage.d": "+25 % Schaden",
+      "up.rate": "Feuerrate", "up.rate.d": "15 % schneller schießen",
+      "up.multi": "Mehrfachschuss", "up.multi.d": "+1 Kern pro Schuss",
+      "up.speed": "Tempo", "up.speed.d": "10 % schneller fliegen",
+      "up.hp": "Max. Leben", "up.hp.d": "+20 max. Leben, heilt 20",
+      "up.pierce": "Durchschlag", "up.pierce.d": "Kerne durchbohren +1 Gegner",
+      "ui.lvl": "Stufe", "ui.best": "Bestwert", "ui.kills": "Gegner", "ui.noBest": "Noch kein Bestwert. Leg los!",
+      "ui.debug": "Debug-Start (zählt nicht als Bestwert)",
+      "share.text": "Ich habe {t} in Hamster Rocket Arena überlebt 🐹🚀 Schaffst du mehr?",
       "a11y.mute": "Ton aus", "a11y.unmute": "Ton an", "a11y.pause": "Pause"
     },
     fr: {
-      "hud.wave": "VAGUE", "hud.best": "RECORD", "hud.combo": "COMBO", "hud.left": "RESTANTS", "hud.boss": "ROBO-CHAT",
-      "hud.bossWave": "VAGUE DE BOSS !", "hud.bossName": "ROBO-CHAT GÉANT", "hud.bossDown": "ROBO-CHAT VAINCU !", "hud.angry": "ROBO-CHAT EST FÂCHÉ !",
-      "hud.clear": "VAGUE TERMINÉE !", "hud.ready": "PRÉPARE-TOI !", "hud.meow": "MIAOU !", "hud.move": "BOUGER", "hud.aim": "VISER (AUTO)",
-      "pw.triple": "TIR TRIPLE !", "pw.rapid": "TIR RAPIDE !", "pw.shield": "BOUCLIER !", "pw.heal": "+VIE !",
-      "ui.best": "Record", "ui.noBest": "Pas encore de record. À toi de jouer !", "ui.waves1": "1 vague", "ui.wavesN": "{n} vagues",
-      "ui.debug": "Debug : départ à la vague {n} (pas compté comme record)",
-      "share.text1": "J’ai survécu à 1 vague dans Hamster Rocket Arena 🐹🚀 Tu peux me battre\u00a0?",
-      "share.textN": "J’ai survécu à {n} vagues dans Hamster Rocket Arena 🐹🚀 Tu peux me battre\u00a0?",
+      "hud.level": "NIV", "hud.horde": "LA HORDE ARRIVE !", "hud.bossWave": "BOSS !", "hud.bossName": "ROBO-CHAT GÉANT", "hud.bossDown": "ROBO-CHAT VAINCU !",
+      "hud.boss": "ROBO-CHAT", "hud.move": "BOUGER", "hud.aim": "VISER + TIRER",
+      "up.damage": "Dégâts", "up.damage.d": "+25 % de dégâts",
+      "up.rate": "Cadence de tir", "up.rate.d": "Tire 15 % plus vite",
+      "up.multi": "Tir multiple", "up.multi.d": "+1 graine par tir",
+      "up.speed": "Vitesse", "up.speed.d": "Vole 10 % plus vite",
+      "up.hp": "Vie max", "up.hp.d": "+20 PV max, soigne 20",
+      "up.pierce": "Perforation", "up.pierce.d": "Les graines traversent +1 ennemi",
+      "ui.lvl": "Niv.", "ui.best": "Record", "ui.kills": "ennemis", "ui.noBest": "Pas encore de record. À toi de jouer !",
+      "ui.debug": "Départ debug (pas compté comme record)",
+      "share.text": "J’ai survécu pendant {t} dans Hamster Rocket Arena 🐹🚀 Tu peux me battre\u00a0?",
       "a11y.mute": "Couper le son", "a11y.unmute": "Activer le son", "a11y.pause": "Pause"
     }
   };

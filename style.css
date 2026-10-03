@@ -30,7 +30,7 @@ html:not([data-lang="en"]) [data-l="en"],html:not([data-lang="de"]) [data-l="de"
 .stage{position:relative;flex:1 1 auto;min-height:0;width:100%;overflow:hidden;touch-action:none;-webkit-user-select:none;user-select:none;
   -webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;background:#12134d}
 #arena{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;outline:none}
-.hud-btns{position:absolute;top:10px;right:max(10px,env(safe-area-inset-right));display:flex;gap:8px;z-index:6}
+.hud-btns{position:absolute;top:22px;right:max(10px,env(safe-area-inset-right));display:flex;gap:8px;z-index:6}
 .icon-btn{width:40px;height:40px;border-radius:50%;border:3px solid var(--ink);background:rgba(255,255,255,.92);display:grid;place-items:center;cursor:pointer;padding:0;
   box-shadow:0 3px 0 var(--ink);-webkit-tap-highlight-color:transparent}
 .icon-btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--ink)}
@@ -77,6 +77,26 @@ html:not([data-lang="en"]) [data-l="en"],html:not([data-lang="de"]) [data-l="de"
 .go-stats b{font-size:24px;line-height:1.1;font-weight:400}
 .go-stats span{font-size:12px;line-height:1.15;font-weight:700;color:#4b4580}
 
+/* level-up cards */
+.card-level{max-width:420px}
+.lv-title{animation:pulse 1s ease-in-out infinite;color:#1f9d4c!important}
+.lv-sub{margin:-4px 0 10px;font-weight:700;color:#4b4580}
+.lv-cards{display:grid;gap:10px}
+.lv-card{display:grid;grid-template-columns:48px 1fr auto;align-items:center;gap:10px;text-align:left;width:100%;padding:10px 12px;border:3px solid var(--ink);border-radius:16px;
+  background:#fff8e1;box-shadow:0 5px 0 var(--ink);cursor:pointer;font:inherit;color:var(--ink);position:relative;transition:transform .08s,box-shadow .08s;-webkit-tap-highlight-color:transparent}
+.lv-card:hover:not(:disabled){background:#ffefb0}
+.lv-card:active:not(:disabled){transform:translateY(4px);box-shadow:0 1px 0 var(--ink)}
+.lv-card:disabled{opacity:.75;cursor:default}
+.lv-icon{font-size:30px;line-height:48px;text-align:center;width:48px;height:48px;border-radius:50%;background:var(--yellow);border:3px solid var(--ink)}
+.lv-text{display:flex;flex-direction:column;min-width:0}
+.lv-text b{font-family:"Luckiest Guy",system-ui,sans-serif;font-weight:400;font-size:20px;line-height:1.1}
+.lv-text span{font-size:14px;font-weight:600;color:#4b4580;line-height:1.25}
+.lv-pips{font-size:12px;font-weight:800;color:#1f9d4c;white-space:nowrap}
+.lv-key{position:absolute;top:-9px;right:10px;font:12px/1 "Luckiest Guy",sans-serif;background:var(--ink);color:#fff;border-radius:6px;padding:4px 6px 2px;display:none}
+@media (hover:hover) and (pointer:fine){.lv-key{display:block}}
+.go-label{margin:-2px 0 6px;font-weight:800;color:#4b4580;text-transform:uppercase;font-size:13px;letter-spacing:.5px}
+.go-stats{grid-template-columns:repeat(2,1fr)}
+
 /* short screens (phones in landscape) */
 @media (max-height:520px){
   :root{--bar:46px}
@@ -88,4 +108,9 @@ html:not([data-lang="en"]) [data-l="en"],html:not([data-lang="de"]) [data-l="de"
   .btn-col{flex-direction:row;justify-content:center}
   .btn-col .btn{width:auto}
   .fun-note{margin-top:6px}
+  .lv-sub{display:none}
+  .card-level{max-width:640px}
+  .lv-cards{grid-template-columns:repeat(3,1fr)}
+  .lv-card{grid-template-columns:1fr;justify-items:center;text-align:center;padding:8px}
+  .lv-text{align-items:center}
 }

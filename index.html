@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hamster Rocket Arena (test version)</title>
-<meta name="description" content="Hamster Rocket Arena: a free cartoon arena shooter for mobile and PC. Fly the rocket hamster, blast sunflower seeds at cat drones and survive the waves. Just a game for fun.">
+<meta name="description" content="Hamster Rocket Arena: a free cartoon survival shooter for mobile and PC. Fly the rocket hamster, blast sunflower seeds at endless cat hordes and survive as long as you can. Just a game for fun.">
 <meta name="theme-color" content="#1b1d6b">
 <meta property="og:title" content="Hamster Rocket Arena (test version)">
-<meta property="og:description" content="Fly the rocket hamster, blast sunflower seeds at cat drones, vacuum bots and a giant robo-cat. Just a game for fun.">
+<meta property="og:description" content="Fly the rocket hamster, blast sunflower seeds at endless cat hordes, level up and survive as long as you can. Just a game for fun.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://botgrok558-ux.github.io/hamster-rocket-arena/">
 <meta property="og:image" content="https://botgrok558-ux.github.io/hamster-rocket-arena/assets/og.jpg">
@@ -46,18 +46,17 @@
     <div class="card">
       <img class="card-logo" src="assets/logo_180.png" alt="" width="84" height="84">
       <h1>Hamster Rocket <span>Arena</span></h1>
-      <p class="lead"><span data-l="en">Blast sunflower seeds at cat drones, vacuum bots and mouse-trap mines. Every 5th wave a giant robo-cat shows up!</span><span data-l="de">Schieß Sonnenblumenkerne auf Katzen-Drohnen, Staubsauger-Bots und Mausefallen-Minen. Jede 5. Welle kommt eine riesige Robo-Katze!</span><span data-l="fr">Tire des graines de tournesol sur les drones-chats, les robots aspirateurs et les mines tapettes. Toutes les 5 vagues, un robo-chat géant débarque&nbsp;!</span></p>
+      <p class="lead"><span data-l="en">Endless cat hordes are coming from all sides. Blast them with sunflower seeds, level up and survive as long as you can!</span><span data-l="de">Endlose Katzen-Horden kommen von allen Seiten. Schieß sie mit Sonnenblumenkernen ab, steig auf und überlebe so lange du kannst!</span><span data-l="fr">Des hordes de chats arrivent de tous les côtés. Bombarde-les de graines de tournesol, monte de niveau et survis le plus longtemps possible&nbsp;!</span></p>
       <ul class="controls touch-only">
         <li><span class="key">👈</span> <span data-l="en">Left thumb: move</span><span data-l="de">Linker Daumen: bewegen</span><span data-l="fr">Pouce gauche&nbsp;: bouger</span></li>
-        <li><span class="key">🎯</span> <span data-l="en">Auto-aim + auto-fire at the nearest enemy</span><span data-l="de">Automatisch zielen + schießen auf den nächsten Gegner</span><span data-l="fr">Visée + tir automatiques sur l’ennemi le plus proche</span></li>
-        <li><span class="key">👉</span> <span data-l="en">Right thumb (optional): aim yourself</span><span data-l="de">Rechter Daumen (optional): selbst zielen</span><span data-l="fr">Pouce droit (optionnel)&nbsp;: viser toi-même</span></li>
+        <li><span class="key">👉</span> <span data-l="en">Right thumb: aim + shoot</span><span data-l="de">Rechter Daumen: zielen + schießen</span><span data-l="fr">Pouce droit&nbsp;: viser + tirer</span></li>
       </ul>
       <ul class="controls mouse-only">
         <li><span class="key">WASD</span> / <span class="key">← →</span> <span data-l="en">move</span><span data-l="de">bewegen</span><span data-l="fr">bouger</span></li>
         <li><span class="key">🖱</span> <span data-l="en">aim, click or hold to shoot</span><span data-l="de">zielen, klicken oder halten zum Schießen</span><span data-l="fr">viser, clique ou maintiens pour tirer</span></li>
         <li><span class="key">P</span> <span data-l="en">pause</span><span data-l="de">Pause</span><span data-l="fr">pause</span> · <span class="key">M</span> <span data-l="en">sound</span><span data-l="de">Ton</span><span data-l="fr">son</span></li>
       </ul>
-      <p class="powers"><span class="pw pw-triple">3×</span><span data-l="en">triple shot</span><span data-l="de">Dreifachschuss</span><span data-l="fr">tir triple</span> <span class="pw pw-rapid">⚡</span><span data-l="en">rapid fire</span><span data-l="de">Schnellfeuer</span><span data-l="fr">tir rapide</span> <span class="pw pw-shield">🛡</span><span data-l="en">shield</span><span data-l="de">Schild</span><span data-l="fr">bouclier</span> <span class="pw pw-heal">♥</span><span data-l="en">heal</span><span data-l="de">Heilung</span><span data-l="fr">soin</span></p>
+      <p class="powers">🌻 <span data-l="en">Defeated cats drop seeds. Collect them to level up and pick an upgrade.</span><span data-l="de">Besiegte Katzen lassen Kerne fallen. Sammle sie, steig auf und wähle ein Upgrade.</span><span data-l="fr">Les chats vaincus lâchent des graines. Ramasse-les pour monter de niveau et choisir une amélioration.</span></p>
       <button type="button" class="btn btn-primary btn-big" id="btn-play">▶ <span data-l="en">Play</span><span data-l="de">Spielen</span><span data-l="fr">Jouer</span></button>
       <p class="best-line" id="start-best"></p>
       <p class="debug-line hidden" id="debug-line"></p>
@@ -77,16 +76,25 @@
     </div>
   </div>
 
+  <!-- level up -->
+  <div class="overlay hidden" id="ov-level">
+    <div class="card card-level">
+      <h2 class="lv-title"><span data-l="en">Level up!</span><span data-l="de">Aufgestiegen!</span><span data-l="fr">Niveau supérieur&nbsp;!</span></h2>
+      <p class="lv-sub"><span data-l="en">Pick an upgrade</span><span data-l="de">Wähle ein Upgrade</span><span data-l="fr">Choisis une amélioration</span></p>
+      <div class="lv-cards" id="lv-cards"></div>
+    </div>
+  </div>
+
   <!-- game over -->
   <div class="overlay hidden" id="ov-over">
     <div class="card">
       <h2 class="go-title"><span data-l="en">Game over</span><span data-l="de">Game over</span><span data-l="fr">Partie terminée</span></h2>
-      <p class="go-score" id="go-score">0</p>
+      <p class="go-score" id="go-time">0:00</p>
+      <p class="go-label"><span data-l="en">time survived</span><span data-l="de">überlebt</span><span data-l="fr">temps de survie</span></p>
       <p class="go-badge hidden" id="go-newbest"><span data-l="en">NEW BEST!</span><span data-l="de">NEUER BESTWERT!</span><span data-l="fr">NOUVEAU RECORD&nbsp;!</span></p>
       <div class="go-stats">
-        <div><b id="go-waves">0</b><span data-l="en">waves survived</span><span data-l="de">Wellen überlebt</span><span data-l="fr">vagues survécues</span></div>
-        <div><b id="go-kills">0</b><span data-l="en">enemies</span><span data-l="de">Gegner</span><span data-l="fr">ennemis</span></div>
-        <div><b id="go-combo">0</b><span data-l="en">best combo</span><span data-l="de">beste Combo</span><span data-l="fr">meilleur combo</span></div>
+        <div><b id="go-kills">0</b><span data-l="en">kills</span><span data-l="de">Gegner besiegt</span><span data-l="fr">ennemis vaincus</span></div>
+        <div><b id="go-level">1</b><span data-l="en">level</span><span data-l="de">Stufe</span><span data-l="fr">niveau</span></div>
       </div>
       <p class="best-line" id="go-best"></p>
       <div class="btn-col">
