@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="70%">
+      <stop offset="0" stop-color="#3b3fb6"/>
+      <stop offset="0.55" stop-color="#1b1d6b"/>
+      <stop offset="1" stop-color="#0a0b2e"/>
+    </radialGradient>
+    <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd23f"/>
+      <stop offset="0.5" stop-color="#ff8a1f"/>
+      <stop offset="1" stop-color="#ff3d5a" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="fur" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffbb55"/>
+      <stop offset="1" stop-color="#ec8a22"/>
+    </linearGradient>
+    <linearGradient id="cone" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff6b81"/>
+      <stop offset="1" stop-color="#e2294b"/>
+    </linearGradient>
+  </defs>
+  <g stroke="#170d33" stroke-linejoin="round" stroke-linecap="round"><!-- fins -->
+    <path d="M300 600 C 220 640, 170 720, 160 820 C 230 780, 290 760, 350 740 Z" fill="url(#cone)" stroke-width="14"/>
+    <path d="M724 600 C 804 640, 854 720, 864 820 C 794 780, 734 760, 674 740 Z" fill="url(#cone)" stroke-width="14"/>
+    <!-- nozzle -->
+    <path d="M452 720 L572 720 L596 800 L428 800 Z" fill="#9aa6c8" stroke-width="14"/>
+    <rect x="440" y="776" width="144" height="22" rx="8" fill="#6c7699" stroke-width="10"/>
+    <!-- nose cone -->
+    <path d="M400 250 C 420 160, 470 100, 512 70 C 554 100, 604 160, 624 250 Z" fill="url(#cone)" stroke-width="14"/>
+    <circle cx="512" cy="168" r="26" fill="#bff3ff" stroke-width="10"/>
+    <circle cx="512" cy="480" r="252" fill="#262a86" stroke="none"/>
+<circle cx="512" cy="480" r="252" fill="#2f3499" stroke="none" opacity="0.6"/></g></svg>

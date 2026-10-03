@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hamster Rocket Arena (test version)</title>
+<meta name="description" content="Hamster Rocket Arena: a free cartoon arena shooter for mobile and PC. Fly the rocket hamster, blast sunflower seeds at cat drones and survive the waves. Just a game for fun.">
+<meta name="theme-color" content="#1b1d6b">
+<meta property="og:title" content="Hamster Rocket Arena (test version)">
+<meta property="og:description" content="Fly the rocket hamster, blast sunflower seeds at cat drones, vacuum bots and a giant robo-cat. Just a game for fun.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://botgrok558-ux.github.io/hamster-rocket-arena/">
+<meta property="og:image" content="https://botgrok558-ux.github.io/hamster-rocket-arena/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/logo_180.png">
+<link rel="preload" href="assets/luckiest-guy.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="i18n.js"></script>
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="./" aria-label="Hamster Rocket Arena"><img src="assets/logo_64.png" alt="" width="34" height="34"><span class="brand-name">Hamster Rocket <b>Arena</b></span></a>
+  <span class="test-badge"><span data-l="en">TEST VERSION</span><span data-l="de">TESTVERSION</span><span data-l="fr">VERSION TEST</span></span>
+  <span class="spacer"></span>
+  <div class="lang" role="group" aria-label="Language / Sprache / Langue"><button type="button" data-lang-btn="de" aria-pressed="false">DE</button><button type="button" data-lang-btn="en" aria-pressed="false">EN</button><button type="button" data-lang-btn="fr" aria-pressed="false">FR</button></div>
+  <a class="x-link" href="https://x.com/HamsterRocketX" target="_blank" rel="noopener noreferrer" data-i18n-attr="aria-label|Hamster Rocket on X|Hamster Rocket auf X|Hamster Rocket sur X" aria-label="Hamster Rocket on X">
+    <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="#fff" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+  </a>
+</header>
+
+<main class="stage" id="stage">
+  <canvas id="arena" aria-label="Hamster Rocket Arena game"></canvas>
+
+  <div class="hud-btns">
+    <button type="button" class="icon-btn hidden" id="btn-pause" data-i18n-attr="aria-label|Pause|Pause|Pause" aria-label="Pause">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1.5" fill="#170d33"/><rect x="14" y="4" width="5" height="16" rx="1.5" fill="#170d33"/></svg>
+    </button>
+    <button type="button" class="icon-btn" id="btn-mute" aria-label="Mute">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3z" fill="#170d33"/><g id="snd-on" fill="none" stroke="#170d33" stroke-width="2.2" stroke-linecap="round"><path d="M15.5 9a4 4 0 0 1 0 6"/><path d="M18 6.5a7.5 7.5 0 0 1 0 11"/></g><g id="snd-off" stroke="#e2294b" stroke-width="2.4" stroke-linecap="round"><path d="M15 9l6 6M21 9l-6 6"/></g></svg>
+    </button>
+  </div>
+
+  <!-- start -->
+  <div class="overlay" id="ov-start">
+    <div class="card">
+      <img class="card-logo" src="assets/logo_180.png" alt="" width="84" height="84">
+      <h1>Hamster Rocket <span>Arena</span></h1>
+      <p class="lead"><span data-l="en">Blast sunflower seeds at cat drones, vacuum bots and mouse-trap mines. Every 5th wave a giant robo-cat shows up!</span><span data-l="de">Schieß Sonnenblumenkerne auf Katzen-Drohnen, Staubsauger-Bots und Mausefallen-Minen. Jede 5. Welle kommt eine riesige Robo-Katze!</span><span data-l="fr">Tire des graines de tournesol sur les drones-chats, les robots aspirateurs et les mines tapettes. Toutes les 5 vagues, un robo-chat géant débarque&nbsp;!</span></p>
+      <ul class="controls touch-only">
+        <li><span class="key">👈</span> <span data-l="en">Left thumb: move</span><span data-l="de">Linker Daumen: bewegen</span><span data-l="fr">Pouce gauche&nbsp;: bouger</span></li>
+        <li><span class="key">🎯</span> <span data-l="en">Auto-aim + auto-fire at the nearest enemy</span><span data-l="de">Automatisch zielen + schießen auf den nächsten Gegner</span><span data-l="fr">Visée + tir automatiques sur l’ennemi le plus proche</span></li>
+        <li><span class="key">👉</span> <span data-l="en">Right thumb (optional): aim yourself</span><span data-l="de">Rechter Daumen (optional): selbst zielen</span><span data-l="fr">Pouce droit (optionnel)&nbsp;: viser toi-même</span></li>
+      </ul>
+      <ul class="controls mouse-only">
+        <li><span class="key">WASD</span> / <span class="key">← →</span> <span data-l="en">move</span><span data-l="de">bewegen</span><span data-l="fr">bouger</span></li>
+        <li><span class="key">🖱</span> <span data-l="en">aim, click or hold to shoot</span><span data-l="de">zielen, klicken oder halten zum Schießen</span><span data-l="fr">viser, clique ou maintiens pour tirer</span></li>
+        <li><span class="key">P</span> <span data-l="en">pause</span><span data-l="de">Pause</span><span data-l="fr">pause</span> · <span class="key">M</span> <span data-l="en">sound</span><span data-l="de">Ton</span><span data-l="fr">son</span></li>
+      </ul>
+      <p class="powers"><span class="pw pw-triple">3×</span><span data-l="en">triple shot</span><span data-l="de">Dreifachschuss</span><span data-l="fr">tir triple</span> <span class="pw pw-rapid">⚡</span><span data-l="en">rapid fire</span><span data-l="de">Schnellfeuer</span><span data-l="fr">tir rapide</span> <span class="pw pw-shield">🛡</span><span data-l="en">shield</span><span data-l="de">Schild</span><span data-l="fr">bouclier</span> <span class="pw pw-heal">♥</span><span data-l="en">heal</span><span data-l="de">Heilung</span><span data-l="fr">soin</span></p>
+      <button type="button" class="btn btn-primary btn-big" id="btn-play">▶ <span data-l="en">Play</span><span data-l="de">Spielen</span><span data-l="fr">Jouer</span></button>
+      <p class="best-line" id="start-best"></p>
+      <p class="debug-line hidden" id="debug-line"></p>
+      <p class="fun-note"><span data-l="en">Just a game for fun. No prizes, no rewards, no tokens to win.</span><span data-l="de">Nur ein Spiel zum Spaß. Keine Preise, keine Belohnungen, keine Tokens zu gewinnen.</span><span data-l="fr">Juste un jeu pour s’amuser. Pas de prix, pas de récompenses, aucun token à gagner.</span></p>
+    </div>
+  </div>
+
+  <!-- pause -->
+  <div class="overlay hidden" id="ov-pause">
+    <div class="card card-small">
+      <h2><span data-l="en">Paused</span><span data-l="de">Pause</span><span data-l="fr">Pause</span></h2>
+      <div class="btn-col">
+        <button type="button" class="btn btn-primary btn-big" id="btn-resume">▶ <span data-l="en">Resume</span><span data-l="de">Weiter</span><span data-l="fr">Reprendre</span></button>
+        <button type="button" class="btn btn-ghost" id="btn-restart">↻ <span data-l="en">Restart</span><span data-l="de">Neu starten</span><span data-l="fr">Recommencer</span></button>
+      </div>
+      <p class="fun-note"><span data-l="en">Just a game for fun. No prizes, no rewards, no tokens to win.</span><span data-l="de">Nur ein Spiel zum Spaß. Keine Preise, keine Belohnungen, keine Tokens zu gewinnen.</span><span data-l="fr">Juste un jeu pour s’amuser. Pas de prix, pas de récompenses, aucun token à gagner.</span></p>
+    </div>
+  </div>
+
+  <!-- game over -->
+  <div class="overlay hidden" id="ov-over">
+    <div class="card">
+      <h2 class="go-title"><span data-l="en">Game over</span><span data-l="de">Game over</span><span data-l="fr">Partie terminée</span></h2>
+      <p class="go-score" id="go-score">0</p>
+      <p class="go-badge hidden" id="go-newbest"><span data-l="en">NEW BEST!</span><span data-l="de">NEUER BESTWERT!</span><span data-l="fr">NOUVEAU RECORD&nbsp;!</span></p>
+      <div class="go-stats">
+        <div><b id="go-waves">0</b><span data-l="en">waves survived</span><span data-l="de">Wellen überlebt</span><span data-l="fr">vagues survécues</span></div>
+        <div><b id="go-kills">0</b><span data-l="en">enemies</span><span data-l="de">Gegner</span><span data-l="fr">ennemis</span></div>
+        <div><b id="go-combo">0</b><span data-l="en">best combo</span><span data-l="de">beste Combo</span><span data-l="fr">meilleur combo</span></div>
+      </div>
+      <p class="best-line" id="go-best"></p>
+      <div class="btn-col">
+        <button type="button" class="btn btn-primary btn-big" id="btn-again">↻ <span data-l="en">Play again</span><span data-l="de">Nochmal</span><span data-l="fr">Rejouer</span></button>
+        <button type="button" class="btn btn-x" id="btn-share"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="#fff" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> <span data-l="en">Share on X</span><span data-l="de">Auf X teilen</span><span data-l="fr">Partager sur X</span></button>
+      </div>
+      <p class="fun-note"><span data-l="en">Just a game for fun. No prizes, no rewards, no tokens to win.</span><span data-l="de">Nur ein Spiel zum Spaß. Keine Preise, keine Belohnungen, keine Tokens zu gewinnen.</span><span data-l="fr">Juste un jeu pour s’amuser. Pas de prix, pas de récompenses, aucun token à gagner.</span></p>
+    </div>
+  </div>
+
+  <noscript><div class="overlay"><div class="card"><p>Please enable JavaScript to play. · Bitte JavaScript aktivieren. · Active JavaScript pour jouer.</p></div></div></noscript>
+</main>
+
+<script src="arena.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
